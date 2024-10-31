@@ -1,36 +1,36 @@
-import { useState } from 'react';
-
-import {
-  Button,
-  Card,
-  Col,
-  Container,
-  Row,
-  Table,
-} from 'react-bootstrap';
-
-import ProtocolFormLiquidado from '../components/protocolFormLiquidado';
-import ProtocolFormPendente from '../components/protocolFormPendente';
-
-// Importe os outros formulários conforme necessário
+import { useState } from "react";
+import { Button, Card, Col, Container, Row, Table } from "react-bootstrap";
+import ProtocolFormView from "../components/protocolFormView";
 
 function Dashboard() {
   const [selectedForm, setSelectedForm] = useState(null);
+  const [selectedProtocol, setSelectedProtocol] = useState(null);
 
-  const renderForm = () => {
-    switch (selectedForm) {
-      case "liquidado":
-        return <ProtocolFormLiquidado />;
-      case "pendente":
-        return <ProtocolFormPendente />;
-      // Adicione outros casos conforme necessário
-      default:
-        return (
-          <p className="text-center">
-            Selecione uma situação para visualizar o formulário.
-          </p>
-        );
-    }
+  const renderTable = () => {
+    return (
+      <Table striped bordered hover className="mt-4">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>ID do Protocolo</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* Dados dos protocolos virão aqui */}
+          <tr onClick={() => setSelectedProtocol({ id: 1, nome: "Protocolo 1", status: "Liquidado", data: "2024-10-31", descricao: "Exemplo de descrição" })}>
+            <td>1</td>
+            <td>12345</td>
+            <td>2024-10-31</td>
+            <td>Liquidado</td>
+            <td>Descrição Exemplo</td>
+          </tr>
+          {/* Adicione mais linhas conforme necessário */}
+        </tbody>
+      </Table>
+    );
   };
 
   return (
@@ -44,74 +44,36 @@ function Dashboard() {
       {/* Seção de Botões */}
       <Row className="mb-4 justify-content-center">
         <Col md="auto">
-          <Button
-            variant="primary"
-            onClick={() => setSelectedForm("liquidado")}
-          >
-            Liquidado
-          </Button>
+          <Button variant="primary" onClick={() => setSelectedForm("liquidado")}>Liquidado</Button>
         </Col>
         <Col md="auto">
-          <Button
-            variant="secondary"
-            onClick={() => setSelectedForm("pendente")}
-          >
-            Pendente
-          </Button>
+          <Button variant="secondary" onClick={() => setSelectedForm("pendente")}>Pendente</Button>
         </Col>
         <Col md="auto">
-          <Button variant="info" onClick={() => setSelectedForm("reclamadas")}>
-            Reclamadas
-          </Button>
+          <Button variant="info" onClick={() => setSelectedForm("reclamadas")}>Reclamadas</Button>
         </Col>
         <Col md="auto">
-          <Button
-            variant="success"
-            onClick={() => setSelectedForm("atendidas")}
-          >
-            Atendidas
-          </Button>
+          <Button variant="success" onClick={() => setSelectedForm("atendidas")}>Atendidas</Button>
         </Col>
         <Col md="auto">
-          <Button variant="warning" onClick={() => setSelectedForm("recibo")}>
-            Recibo
-          </Button>
+          <Button variant="warning" onClick={() => setSelectedForm("recibo")}>Recibo</Button>
         </Col>
         <Col md="auto">
-          <Button variant="danger" onClick={() => setSelectedForm("cancelada")}>
-            Cancelada
-          </Button>
+          <Button variant="danger" onClick={() => setSelectedForm("cancelada")}>Cancelada</Button>
         </Col>
       </Row>
 
-      {/* Seção de Formulário ou Tabela */}
+      {/* Tabela de protocolos ou Formulário de Visualização */}
       <Row className="justify-content-center">
         <Col md={10}>
           <Card>
             <Card.Body>
-              {renderForm()}
-
-              {/* Tabela vazia, que será preenchida pelos dados do servidor futuramente */}
-              {selectedForm && (
-                <Table striped bordered hover className="mt-4">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>ID do Protocolo</th>
-                      <th>Data</th>
-                      <th>Status</th>
-                      <th>Descrição</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {/* Dados dos protocolos virão aqui */}
-                    <tr>
-                      <td colSpan="5" className="text-center">
-                        Nenhum protocolo disponível
-                      </td>
-                    </tr>
-                  </tbody>
-                </Table>
+              {selectedProtocol ? (
+                <ProtocolFormView protocol={selectedProtocol} onBack={() => setSelectedProtocol(null)} />
+              ) : selectedForm ? (
+                renderTable()
+              ) : (
+                <p className="text-center">Selecione uma situação para visualizar os protocolos.</p>
               )}
             </Card.Body>
           </Card>

@@ -1,11 +1,11 @@
-import '../styles/login.scss';
+import "../styles/login.scss";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-import LoadingSpinner from '../components/loadingSpinner';
-import { login } from '../services/authService';
+import LoadingSpinner from "../components/loadingSpinner";
+import { login } from "../services/authService";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -14,7 +14,8 @@ function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = async e => {
+  // Aqui é o efeito de carregamento quando é feito o login
+  const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
@@ -41,7 +42,7 @@ function Login() {
               type="email"
               placeholder="Email or Phone"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="input-group">
@@ -49,7 +50,7 @@ function Login() {
               type="password"
               placeholder="Password"
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           {error && <p className="error-message">{error}</p>}
