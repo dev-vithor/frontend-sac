@@ -19,7 +19,6 @@ function Dashboard() {
           </tr>
         </thead>
         <tbody>
-          {/* Dados dos protocolos virão aqui */}
           <tr onClick={() => setSelectedProtocol({ id: 1, nome: "Protocolo 1", status: "Liquidado", data: "2024-10-31", descricao: "Exemplo de descrição" })}>
             <td>1</td>
             <td>12345</td>
@@ -27,22 +26,18 @@ function Dashboard() {
             <td>Liquidado</td>
             <td>Descrição Exemplo</td>
           </tr>
-          {/* Adicione mais linhas conforme necessário */}
         </tbody>
       </Table>
     );
   };
 
   return (
-    <Container className="mt-5">
-      <Row>
-        <Col>
-          <h2 className="text-center mb-4">Painel de Protocolos SAC</h2>
-        </Col>
+    <Container className="dashboard-container">
+      <Row className="text-center mt-4 mb-3">
+        <h2>Painel de Protocolos SAC</h2>
       </Row>
 
-      {/* Seção de Botões */}
-      <Row className="mb-4 justify-content-center">
+      <Row className="navbar-buttons mb-4 justify-content-center">
         <Col md="auto">
           <Button variant="primary" onClick={() => setSelectedForm("liquidado")}>Liquidado</Button>
         </Col>
@@ -63,10 +58,9 @@ function Dashboard() {
         </Col>
       </Row>
 
-      {/* Tabela de protocolos ou Formulário de Visualização */}
       <Row className="justify-content-center">
         <Col md={10}>
-          <Card>
+          <Card className="protocol-card">
             <Card.Body>
               {selectedProtocol ? (
                 <ProtocolFormView protocol={selectedProtocol} onBack={() => setSelectedProtocol(null)} />

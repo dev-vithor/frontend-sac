@@ -1,124 +1,128 @@
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import '../styles/protocolFormView.module.scss';
 
-function ProtocolFormView({ protocol, onBack }) {
+function SACForm({ onBack }) {
   return (
-    <Container className="p-4 protocol-form">
-      <h2 className="text-center mb-4">Protocolo de Atendimento</h2>
+    <Container className="sac-form" >
+      <h4 className="text-center mb-3">SAC - Serviço de Atendimento ao Consumidor</h4>
 
-      {/* Dados Pessoais */}
+      {/* Dados do Consumidor */}
       <Card className="mb-4">
         <Card.Body>
-          <h5>Dados Pessoais</h5>
+          <h5>Dados do Consumidor</h5>
           <Row>
-            <Col md={4}>
+            <Col md={8}>
               <Form.Group>
-                <Form.Label>Nome</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={protocol.nome} />
-              </Form.Group>
-            </Col>
-            <Col md={4}>
-              <Form.Group>
-                <Form.Label>Idade</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={protocol.idade} />
+                <Form.Label>Nome do Consumidor:</Form.Label>
+                <Form.Control readOnly defaultValue="KATIANE ASSUNÇÃO SILVA" />
               </Form.Group>
             </Col>
             <Col md={4}>
               <Form.Group>
-                <Form.Label>CPF</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={protocol.cpf} />
+                <Form.Label>Bairro:</Form.Label>
+                <Form.Control readOnly defaultValue="CAMBOA" />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={8}>
+              <Form.Group>
+                <Form.Label>Endereço:</Form.Label>
+                <Form.Control readOnly defaultValue="Rua Santo Inácio de Loiola, 140" />
+              </Form.Group>
+            </Col>
+            <Col md={4}>
+              <Form.Group>
+                <Form.Label>Telefone(s):</Form.Label>
+                <Form.Control readOnly defaultValue="(98) 98787-7828" />
               </Form.Group>
             </Col>
           </Row>
         </Card.Body>
       </Card>
 
-      {/* Documentação */}
+      {/* Relato do Cliente */}
       <Card className="mb-4">
         <Card.Body>
-          <h5>Documentação</h5>
+          <h5>Relato do Cliente</h5>
+          <Form.Control as="textarea" rows={3} readOnly defaultValue="Estrutura quebrada. Recibo: 3188." />
+        </Card.Body>
+      </Card>
+
+      {/* Análise da Ocorrência */}
+      <Card className="mb-4">
+        <Card.Body>
+          <h5>Análise da Ocorrência</h5>
           <Row>
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Número do Documento</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={protocol.numeroDocumento} />
+                <Form.Label>Como:</Form.Label>
+                <Form.Control readOnly defaultValue="Estrutura de madeira quebrada" />
               </Form.Group>
             </Col>
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Tipo de Documento</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={protocol.tipoDocumento} />
+                <Form.Label>Quando:</Form.Label>
+                <Form.Control readOnly defaultValue="Data da entrega" />
               </Form.Group>
             </Col>
           </Row>
         </Card.Body>
       </Card>
 
-      {/* Resultado do protocolo */}
+      {/* Solução da Ocorrência */}
       <Card className="mb-4">
         <Card.Body>
-          <h5>PROTOCOLO</h5>
+          <h5>Solução da Ocorrência</h5>
+          <Form.Control readOnly defaultValue="Troca da estrutura" />
+        </Card.Body>
+      </Card>
+
+      {/* Garantia Excluída */}
+      <Card className="mb-4">
+        <Card.Body>
+          <h5>Garantia Excluída nos Casos Abaixo:</h5>
+          <ul>
+            <li>Falta do comprovante de aquisição do produto.</li>
+            <li>Se o produto estiver fora do prazo de garantia.</li>
+            <li>Qualquer tipo de sujeira ou contaminação com substância líquida.</li>
+            <li>Uso inadequado, falta de ventilação e umidade.</li>
+            <li>Uso indevido, inclusive sobre objetos cortantes ou perfurantes.</li>
+          </ul>
+        </Card.Body>
+      </Card>
+
+      {/* Observações Gerais */}
+      <Card className="mb-4">
+        <Card.Body>
+          <h5>Observações Gerais</h5>
+          <Form.Control as="textarea" rows={3} readOnly defaultValue="ATENÇÃO: Produto enviado para fábrica sem defeito, cobrados custos ao remetente." />
+        </Card.Body>
+      </Card>
+
+      {/* Assinatura e Comprovante de Prestação */}
+      <Card className="mb-4">
+        <Card.Body>
+          <h5>Comprovante de Prestação do Serviço (Assistência Técnica)</h5>
           <Row>
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Numero do PROTOCOLO</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={protocol.numProtocolo} />
+                <Form.Label>Assinatura do Cliente</Form.Label>
+                <Form.Control readOnly defaultValue="KATIANE ASSUNÇÃO SILVA" />
               </Form.Group>
             </Col>
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Protocolo em Aberto</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={protocol.protoEmAberto ? "Sim" : "Não"} />
+                <Form.Label>Assinatura do Técnico/Representante</Form.Label>
+                <Form.Control readOnly defaultValue="Carlos Silva" />
               </Form.Group>
             </Col>
           </Row>
         </Card.Body>
       </Card>
 
-      {/* Dados do tipo de defeito */}
-      <Card className="mb-4">
-        <Card.Body>
-          <h5>Dados Familiares</h5>
-          <Row>
-            <Col md={6}>
-              <Form.Group>
-                <Form.Label>Pai</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={protocol.pai} />
-              </Form.Group>
-            </Col>
-            <Col md={6}>
-              <Form.Group>
-                <Form.Label>Mãe</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={protocol.mae} />
-              </Form.Group>
-            </Col>
-          </Row>
-        </Card.Body>
-      </Card>
-
-      {/* Escolaridade */}
-      <Card className="mb-4">
-        <Card.Body>
-          <h5>Escolaridade</h5>
-          <Row>
-            <Col md={6}>
-              <Form.Group>
-                <Form.Label>Ensino Fundamental</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={protocol.ensinoFundamental} />
-              </Form.Group>
-            </Col>
-            <Col md={6}>
-              <Form.Group>
-                <Form.Label>Ensino Médio</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={protocol.ensinoMedio} />
-              </Form.Group>
-            </Col>
-          </Row>
-        </Card.Body>
-      </Card>
-
-      {/* Botão Voltar */}
+      {/* Botão de Voltar */}
       <div className="text-center">
         <Button variant="secondary" onClick={onBack}>Voltar</Button>
       </div>
@@ -126,22 +130,4 @@ function ProtocolFormView({ protocol, onBack }) {
   );
 }
 
-// Definindo os tipos das props usando PropTypes
-ProtocolFormView.propTypes = {
-  protocol: PropTypes.shape({
-    nome: PropTypes.string.isRequired,
-    idade: PropTypes.number.isRequired,
-    cpf: PropTypes.string.isRequired,
-    numeroDocumento: PropTypes.string.isRequired,
-    tipoDocumento: PropTypes.string.isRequired,
-    numProtocolo: PropTypes.string.isRequired,
-    protoEmAberto: PropTypes.bool.isRequired,
-    pai: PropTypes.string.isRequired,
-    mae: PropTypes.string.isRequired,
-    ensinoFundamental: PropTypes.string.isRequired,
-    ensinoMedio: PropTypes.string.isRequired,
-  }).isRequired,
-  onBack: PropTypes.func.isRequired,
-};
-
-export default ProtocolFormView;
+export default SACForm;
