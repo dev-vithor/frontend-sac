@@ -1,55 +1,60 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-  }
-  
-  .dashboard-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
-    min-height: 100vh; /* Define uma altura mínima de 100% da viewport */
-    display: flex;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.dashboard {
+  width: 120px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.protocol-card {
+  width: 100%;
+  max-width: 800px; /* Limita o tamanho do formulário */
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.protocol-card .card-body {
+  max-height: 80vh; /* Limita a altura do formulário para caber melhor na tela */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navbar-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 8px;
   }
-  
-  .navbar-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    padding: 10px 0;
-  }
-  
-  .protocol-card {
-    width: 100%;
-    max-width: 800px; /* Limita o tamanho do formulário */
-    margin-top: 20px;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .protocol-card .card-body {
-    max-height: 80vh; /* Limita a altura do formulário para caber melhor na tela */
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  /* Responsividade */
-  @media (max-width: 768px) {
-    .navbar-buttons {
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-  }
-  
+}

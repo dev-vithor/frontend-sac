@@ -1,82 +1,93 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-}
-
-.navbar-buttons {
-  display: flex;
-  justify-content: space-around;
-  background-color: rgba(0, 255, 255, 0.2);
-  padding: 15px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-.dashboard-content {
-  margin-top: 80px; /* Espaçamento suficiente para que o conteúdo não fique atrás da navbar */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px;
-}
-
 .container {
-  max-width: 1200px;
-  width: 100%;
-  padding: 15px;
-  margin: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px; // Aumentado para mais espaçamento geral
 }
 
-@media (max-width: 768px) {
-  .navbar-buttons {
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 10px;
-  }
-
-  .container {
-      width: 100%;
-      padding: 10px;
-  }
+.title {
+  text-align: center;
+  margin-bottom: 30px; // Mais espaçamento abaixo do título
+  font-size: 1.8em;
 }
 
-.form-wrapper {
+.card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 30px; // Mais espaçamento entre as seções do formulário
+  padding: 20px; // Aumentado o padding interno para dar mais espaço
+  background-color: #f9f9f9; // Fundo levemente diferente para destaque
+}
+
+.card-body h5 {
+  font-size: 1.3em;
+  margin-bottom: 20px;
+}
+
+.row {
   display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Alinha o formulário ao topo */
-  height: 100vh; /* Define a altura da visualização */
-  padding-top: 20px; /* Ajusta a margem superior */
+  flex-wrap: wrap;
+  margin: -8px; // Ajustado para mais espaçamento entre as colunas
 }
 
-.protocol-form {
-  width: 90%; /* Aumenta a largura do formulário */
-  max-height: none; /* Remove a altura máxima */
-  overflow-y: auto; /* Permite rolagem se ultrapassar a altura */
+.col-md-8,
+.col-md-6,
+.col-md-4 {
+  padding: 8px; // Ajustado para mais espaçamento entre colunas
+  flex: 1;
 }
 
-.protocol-form h5 {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  color: #333;
+.col-md-8 {
+  flex-basis: 66.6666%;
+}
+.col-md-6 {
+  flex-basis: 50%;
+}
+.col-md-4 {
+  flex-basis: 33.3333%;
 }
 
-.sac-form {
-  margin-top: 20px;
-  padding: 20px;
+.form-group {
+  margin-bottom: 20px; // Mais espaço abaixo de cada grupo de formulário
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  width: 90%; /* Aumenta a largura */
-  margin: 0 auto; /* Centraliza o formulário */
-  font-family: "Arial, sans-serif";
-  font-size: 14px;
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.back-button {
+  padding: 12px 24px;
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+
+  &:hover {
+    background-color: #357abd;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 }
