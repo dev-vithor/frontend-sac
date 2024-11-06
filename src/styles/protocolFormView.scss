@@ -1,38 +1,51 @@
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 30px; // Aumentado para mais espaçamento geral
 }
 
 .title {
   text-align: center;
-  margin-bottom: 30px; // Mais espaçamento abaixo do título
+  font-weight: bold;
+  margin-bottom: 20px;
   font-size: 1.8em;
 }
 
 .card {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  margin-bottom: 30px; // Mais espaçamento entre as seções do formulário
-  padding: 20px; // Aumentado o padding interno para dar mais espaço
-  background-color: #f9f9f9; // Fundo levemente diferente para destaque
+  margin-bottom: 20px;
 }
 
 .card-body h5 {
+  font-weight: bold;
   font-size: 1.3em;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: -8px; // Ajustado para mais espaçamento entre as colunas
+  margin: 15px;
+}
+
+.numberProtocol {
+  display: flex;
+  align-items: center;
+  
+  .form-group {
+    // display: flex;
+    align-items: center;
+    gap: 10px; // Espaço entre o label "N°" e o input
+    
+    label {
+      font-weight: bold;
+      // margin-bottom: 0;
+    }
+  }
 }
 
 .col-md-8,
 .col-md-6,
 .col-md-4 {
-  padding: 8px; // Ajustado para mais espaçamento entre colunas
+  padding: 5px;
   flex: 1;
 }
 
@@ -47,18 +60,27 @@
 }
 
 .form-group {
-  margin-bottom: 20px; // Mais espaço abaixo de cada grupo de formulário
+  margin-bottom: 8px;
 }
 
 label {
   display: block;
   font-weight: bold;
-  margin-bottom: 6px;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #646464;
 }
+
+.form-group {
+  input {
+    border: 1px solid #cccccc6b;
+  }
+}
+
 
 .form-control {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
@@ -69,11 +91,11 @@ textarea.form-control {
 
 .button-container {
   text-align: center;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .back-button {
-  padding: 12px 24px;
+  padding: 10px 20px;
   background-color: #4a90e2;
   color: #fff;
   border: none;

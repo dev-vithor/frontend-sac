@@ -9,6 +9,8 @@ import {
   Table,
 } from 'react-bootstrap';
 
+import '../styles/dashboard.scss'
+
 import ProtocolFormView from '../components/protocolFormView';
 
 function Dashboard() {
@@ -56,7 +58,7 @@ function Dashboard() {
         <h2>Painel de Protocolos SAC</h2>
       </Row>
 
-      <Row className="navbar-buttons mb-4 justify-content-center">
+      <Row className="navbar">
         <Col md="auto">
           <Button
             variant="primary"
@@ -110,7 +112,7 @@ function Dashboard() {
               ) : selectedForm ? (
                 renderTable()
               ) : (
-                <p className="text-center">
+                <p className="text-table">
                   Selecione uma situação para visualizar os protocolos.
                 </p>
               )}
