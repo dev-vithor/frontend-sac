@@ -5,10 +5,10 @@ import './App.css'
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/frontend-sac/" element={<Login />} />
-        <Route path="/frotend-sac/dashboard" element={<Dashboard />} />
+    <Router >
+      <Routes path="frontend-sac">
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );
