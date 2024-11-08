@@ -6,7 +6,7 @@ import './App.css'
 function App() {
   return (
     <Router >
-      <Routes path="frontend-sac">
+      <Routes path="/">
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
