@@ -7,8 +7,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/frontend-sac/" element={<Login />} />
+        <Route path="/frotend-sac/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );
